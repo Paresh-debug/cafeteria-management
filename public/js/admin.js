@@ -12,18 +12,20 @@ function displayAdminItems(items) {
   const container = document.getElementById('admin-items');
   
   if (items.length === 0) {
-    container.innerHTML = '<p>No menu items yet</p>';
+    container.innerHTML = '<p style="color: white; text-align: center;">No menu items yet</p>';
     return;
   }
   
   container.innerHTML = items.map(item => `
     <div class="admin-item">
       <div>
-        <strong>${item.name}</strong> - ₹${item.price} 
+        <strong><i class="fas fa-utensils"></i> ${item.name}</strong> - ₹${item.price} 
         <span style="color: #7f8c8d;">(${item.category})</span>
       </div>
       <div>
-        <button class="delete-btn" onclick="deleteItem('${item._id}')">Delete</button>
+        <button class="delete-btn" onclick="deleteItem('${item._id}')">
+          <i class="fas fa-trash"></i> Delete
+        </button>
       </div>
     </div>
   `).join('');
@@ -35,7 +37,7 @@ async function addMenuItem() {
   const category = document.getElementById('item-category').value;
   
   if (!name || !price || !category) {
-    alert('Please fill all fields');
+    showToast('Please fill all fields');
     return;
   }
   
@@ -47,14 +49,14 @@ async function addMenuItem() {
     });
     
     if (response.ok) {
-      alert('Item added successfully!');
+      showToast('Item added successfully! ✅');
       document.getElementById('item-name').value = '';
       document.getElementById('item-price').value = '';
       document.getElementById('item-category').value = '';
       loadAdminItems();
     }
   } catch (err) {
-    alert('Error adding item');
+    showToast('Error adding item');
   }
 }
 
@@ -64,12 +66,19 @@ async function deleteItem(id) {
   try {
     const response = await fetch(`/api/menu/${id}`, { method: 'DELETE' });
     if (response.ok) {
-      alert('Item deleted');
+      showToast('Item deleted');
       loadAdminItems();
     }
   } catch (err) {
-    alert('Error deleting item');
+    showToast('Error deleting item');
   }
+}
+
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toast-message').textContent = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
 loadAdminItems();

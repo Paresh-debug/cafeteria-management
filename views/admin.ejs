@@ -5,34 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Panel</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
   <nav>
-    <h1>🔧 Admin Panel</h1>
+    <h1><i class="fas fa-tools"></i> Admin Panel</h1>
     <div>
-      <a href="/">Menu</a>
-      <a href="/cart">Cart</a>
-      <a href="/admin">Admin</a>
+      <a href="/"><i class="fas fa-home"></i> Menu</a>
+      <a href="/cart"><i class="fas fa-shopping-cart"></i> Cart</a>
+      <a href="/admin"><i class="fas fa-user-shield"></i> Admin</a>
     </div>
   </nav>
 
   <div class="container">
-    <h2>Manage Menu Items</h2>
+    <h2><i class="fas fa-cogs"></i> Manage Menu Items</h2>
     
     <div class="admin-form">
-      <h3>Add New Item</h3>
-      <input type="text" id="item-name" placeholder="Item Name" required>
-      <input type="number" id="item-price" placeholder="Price" step="0.01" required>
+      <h3><i class="fas fa-plus-circle"></i> Add New Item</h3>
+      <input type="text" id="item-name" placeholder="🍔 Item Name" required>
+      <input type="number" id="item-price" placeholder="💰 Price (₹)" step="0.01" required>
       <select id="item-category" required>
-        <option value="">Select Category</option>
-        <option value="Breakfast">Breakfast</option>
-        <option value="Lunch">Lunch</option>
-        <option value="Snacks">Snacks</option>
+        <option value="">📋 Select Category</option>
+        <option value="Breakfast">☕ Breakfast</option>
+        <option value="Lunch">🍕 Lunch</option>
+        <option value="Snacks">🍪 Snacks</option>
       </select>
-      <button onclick="addMenuItem()">Add Item</button>
+      <button onclick="addMenuItem()">
+        <i class="fas fa-save"></i> Add Item
+      </button>
     </div>
 
     <div id="admin-items" class="admin-list"></div>
+  </div>
+
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i> <span id="toast-message"></span>
   </div>
 
   <script src="/js/admin.js"></script>

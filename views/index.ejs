@@ -5,27 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cafeteria Menu</title>
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
   <nav>
-    <h1>🍽️ Campus Cafeteria - live demo</h1>
+    <h1><i class="fas fa-utensils"></i> Campus Cafeteria</h1>
     <div>
-      <a href="/">Menu</a>
-      <a href="/cart">Cart (<span id="cart-count">0</span>)</a>
-      <a href="/admin">Admin</a>
+      <a href="/"><i class="fas fa-home"></i> Menu</a>
+      <a href="/cart"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a>
+      <a href="/admin"><i class="fas fa-user-shield"></i> Admin</a>
     </div>
   </nav>
 
   <div class="container">
-    <h2>Menu</h2>
+    <h2><i class="fas fa-book-open"></i> Our Menu</h2>
+    
     <div class="categories">
-      <button class="category-btn active" data-category="all">All</button>
-      <button class="category-btn" data-category="Breakfast">Breakfast</button>
-      <button class="category-btn" data-category="Lunch">Lunch</button>
-      <button class="category-btn" data-category="Snacks">Snacks</button>
+      <button class="category-btn active" data-category="all">
+        <i class="fas fa-th"></i> All Items
+      </button>
+      <button class="category-btn" data-category="Breakfast">
+        <i class="fas fa-mug-hot"></i> Breakfast
+      </button>
+      <button class="category-btn" data-category="Lunch">
+        <i class="fas fa-pizza-slice"></i> Lunch
+      </button>
+      <button class="category-btn" data-category="Snacks">
+        <i class="fas fa-cookie"></i> Snacks
+      </button>
+    </div>
+
+    <div id="loading" class="loading-spinner" style="display:none;">
+      <i class="fas fa-spinner fa-spin"></i> Loading...
     </div>
 
     <div id="menu-items" class="menu-grid"></div>
+  </div>
+
+  <!-- Success Toast Notification -->
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i> <span id="toast-message"></span>
   </div>
 
   <script src="/js/menu.js"></script>
