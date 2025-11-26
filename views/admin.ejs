@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav>
+    <h1>🔧 Admin Panel</h1>
+    <div>
+      <a href="/">Menu</a>
+      <a href="/cart">Cart</a>
+      <a href="/admin">Admin</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2>Manage Menu Items</h2>
+    
+    <div class="admin-form">
+      <h3>Add New Item</h3>
+      <input type="text" id="item-name" placeholder="Item Name" required>
+      <input type="number" id="item-price" placeholder="Price" step="0.01" required>
+      <select id="item-category" required>
+        <option value="">Select Category</option>
+        <option value="Breakfast">Breakfast</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Snacks">Snacks</option>
+      </select>
+      <button onclick="addMenuItem()">Add Item</button>
+    </div>
+
+    <div id="admin-items" class="admin-list"></div>
+  </div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

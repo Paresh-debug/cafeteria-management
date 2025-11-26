@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cafeteria Menu</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav>
+    <h1>🍽️ Campus Cafeteria</h1>
+    <div>
+      <a href="/">Menu</a>
+      <a href="/cart">Cart (<span id="cart-count">0</span>)</a>
+      <a href="/admin">Admin</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2>Menu</h2>
+    <div class="categories">
+      <button class="category-btn active" data-category="all">All</button>
+      <button class="category-btn" data-category="Breakfast">Breakfast</button>
+      <button class="category-btn" data-category="Lunch">Lunch</button>
+      <button class="category-btn" data-category="Snacks">Snacks</button>
+    </div>
+
+    <div id="menu-items" class="menu-grid"></div>
+  </div>
+
+  <script src="/js/menu.js"></script>
+</body>
+</html>
